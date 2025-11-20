@@ -1,0 +1,3 @@
+# WorkSafe IoT – Saúde e Bem-estar no Trabalho 🧠💡
+
+... (Conteúdo removido por brevidade. Substitua esta seção com o README completo fornecido na conversa.) ...
