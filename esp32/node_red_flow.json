@@ -1,0 +1,180 @@
+[
+  {
+    "id": "mqtt_temp",
+    "type": "mqtt in",
+    "z": "flow1",
+    "name": "Temperatura",
+    "topic": "worksafe/temperatura",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker1",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "x": 150,
+    "y": 100,
+    "wires": [
+      [
+        "chart_temp"
+      ]
+    ]
+  },
+  {
+    "id": "chart_temp",
+    "type": "ui_chart",
+    "z": "flow1",
+    "name": "Gr\u00e1fico Temperatura",
+    "group": "group1",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "label": "Temperatura (\u00b0C)",
+    "chartType": "line",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "removeOlder": "1",
+    "removeOlderPoints": "",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "colors": [
+      "#ff0000",
+      "#00ff00",
+      "#0000ff"
+    ],
+    "x": 420,
+    "y": 100,
+    "wires": [
+      [],
+      []
+    ]
+  },
+  {
+    "id": "mqtt_hum",
+    "type": "mqtt in",
+    "z": "flow1",
+    "name": "Umidade",
+    "topic": "worksafe/umidade",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker1",
+    "x": 140,
+    "y": 180,
+    "wires": [
+      [
+        "chart_hum"
+      ]
+    ]
+  },
+  {
+    "id": "chart_hum",
+    "type": "ui_chart",
+    "z": "flow1",
+    "name": "Gr\u00e1fico Umidade",
+    "group": "group1",
+    "order": 2,
+    "label": "Umidade (%)",
+    "chartType": "line",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "removeOlder": "1",
+    "removeOlderUnit": "3600",
+    "x": 430,
+    "y": 180,
+    "wires": [
+      [],
+      []
+    ]
+  },
+  {
+    "id": "mqtt_dist",
+    "type": "mqtt in",
+    "z": "flow1",
+    "name": "Postura (dist\u00e2ncia)",
+    "topic": "worksafe/postura",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker1",
+    "x": 160,
+    "y": 260,
+    "wires": [
+      [
+        "gauge_dist"
+      ]
+    ]
+  },
+  {
+    "id": "gauge_dist",
+    "type": "ui_gauge",
+    "z": "flow1",
+    "name": "Dist\u00e2ncia (cm)",
+    "group": "group1",
+    "order": 3,
+    "label": "Postura (cm)",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 100,
+    "x": 430,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "mqtt_alert",
+    "type": "mqtt in",
+    "z": "flow1",
+    "name": "Alertas",
+    "topic": "worksafe/alertas",
+    "qos": "0",
+    "datatype": "auto",
+    "broker": "broker1",
+    "x": 140,
+    "y": 340,
+    "wires": [
+      [
+        "alert_text"
+      ]
+    ]
+  },
+  {
+    "id": "alert_text",
+    "type": "ui_text",
+    "z": "flow1",
+    "group": "group1",
+    "order": 4,
+    "label": "Alertas",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "x": 430,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "broker1",
+    "type": "mqtt-broker",
+    "name": "Broker MQTT P\u00fablico",
+    "broker": "test.mosquitto.org",
+    "port": "1883",
+    "clientid": "",
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60"
+  },
+  {
+    "id": "group1",
+    "type": "ui_group",
+    "z": "",
+    "name": "WorkSafe IoT",
+    "tab": "tab1",
+    "order": 1,
+    "disp": true,
+    "width": "6"
+  },
+  {
+    "id": "tab1",
+    "type": "ui_tab",
+    "z": "",
+    "name": "Dashboard WorkSafe IoT",
+    "icon": "dashboard"
+  }
+]
