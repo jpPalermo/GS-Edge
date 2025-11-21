@@ -34,6 +34,7 @@ Isso aumenta:
 Falta uma solução **simples, acessível e automatizada** que acompanhe o trabalhador em tempo real, identifique condições ruins e **sugira pausas/ajustes antes que o problema piore**.
 
 Link da simulação: https://wokwi.com/projects/448112375295586305
+Link do Vídeo: https://youtu.be/AA37ckLzVwI
 ---
 
 ## 3. Objetivos da Solução
